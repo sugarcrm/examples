@@ -1,0 +1,4 @@
+task :default do
+  timestamp = Time.now.strftime("%Y%m%d")
+  `zip -r ../../google-address-validator-#{timestamp}.zip SugarModules/ LICENSE.txt manifest.php -x "*.DS_Store"`
+end
