@@ -1,7 +1,7 @@
 <?php
 if(!defined('sugarEntry'))define('sugarEntry', true);
 /*
- * Copyright (c) 2014, John Mertic
+ * Copyright (c) 2014, SugarCRM
  * All rights reserved.
  * 
  * Redistribution and use in source and binary forms, with or without modification,
