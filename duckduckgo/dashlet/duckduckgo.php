@@ -33,7 +33,7 @@ if(!defined('sugarEntry'))define('sugarEntry', true);
 $viewdefs['Home']['base']['view']['duckduckgo'] = array(
     'dashlets' => array(
         array(
-            'name' => 'LBL_DASHLET_DUCKDUCKGO_NAME',
+            'label' => 'LBL_DASHLET_DUCKDUCKGO_NAME',
             'description' => 'LBL_DASHLET_DUCKDUCKGO_DESCRIPTION',
             'config' => array(
                 'baseurl' => 'https://duckduckgo.com/?q=',
