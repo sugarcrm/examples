@@ -1,0 +1,3 @@
+[submodule "world-cup-2014"]
+	path = world-cup-2014
+	url = https://github.com/TortugaCRM/sugar7_football_wc2014_dashlet.git
