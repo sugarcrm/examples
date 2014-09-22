@@ -1,0 +1,121 @@
+{{!
+/*********************************************************************************
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement (“MSA”), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2014 SugarCRM Inc.  All rights reserved.
+ ********************************************************************************/
+
+}}
+
+<div class="nv-demo" style="padding: 0px;">
+    <div id="treemap" class="nv-chart nv-treemap">
+        <svg></svg>
+    </div>
+</div>
+
+<script src="include/javascript/nvd3/lib/d3.min.js"></script>
+<script src="include/javascript/nvd3/nv.d3.min.js"></script>
+<script src="include/javascript/nvd3/src/models/treemap.js"></script>
+<script src="include/javascript/nvd3/src/models/treemapChart.js"></script>
+<script>
+
+    // Wrapping in nv.addGraph allows for '0 timeout render', stors rendered charts in nv.graphs, and may do more in the future... it's NOT required
+    nv.addGraph(function() {
+
+        var data = {
+            "name": "Overview",
+            "x": 0,
+            "y": 0,
+            "dx": 700,
+            "dy": 500,
+            "depth": 0,
+            "children": [
+                {
+                    "name": "Fidelity Advisor",
+                    "children": [
+                        {
+                            "name": "FA Micro Cap A",
+                            "children": [
+                                {"name": "FA Micro Cap A1", "size": 3938},
+                                {"name": "FA Micro Cap A2", "size": 3812},
+                                {"name": "FA Micro Cap A3", "size": 6714},
+                                {"name": "FA Micro Cap A4", "size": 743}
+                            ]
+                        },
+                        {
+                            "name": "FA Convertible Securities Fund",
+                            "children": [
+                                {"name": "Class A", "size": 3534},
+                                {"name": "Class B", "size": 5731},
+                                {"name": "Class C", "size": 7840},
+                                {"name": "Class T", "size": 5914},
+                                {"name": "Class Z", "size": 3416}
+                            ]
+                        },
+                        {
+                            "name": "FA Energy Fund",
+                            "children": [
+                                {"name": "Class A", "size": 7074}
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "Fidelity Advisor 529",
+                    "children": [
+                        {"name": "Agg. Growth Class P", "size": 17010},
+                        {"name": "Agg. Growth Class T", "size": 5842},
+                        {"name": "Agg. Growth Class I", "size": 1041},
+                        {"name": "Agg. Growth Class A", "size": 5176},
+                        {"name": "Agg. Growth Class B", "size": 449},
+                        {"name": "College Portfolio Class P", "size": 5593}
+                    ]
+                },
+                {
+                    "name": "ETF",
+                    "children": [
+                        {"name": "iPad Air 1st Generation", "size": 2105},
+                        {"name": "iPad 1st Generation", "size": 1316},
+                        {"name": "iPad 2nd Generation", "size": 3151},
+                        {"name": "iPad 3rd Generation", "size": 3770},
+                        {"name": "iPad Cases", "size": 2435},
+                        {"name": "iPad Extended Warranty", "size": 4839},
+                    ]
+                },
+                {"name": "Destiny Plan", "size": 16540}
+            ]
+        };
+
+        var chart = nv.models.treemapChart()
+                        .leafClick( function(d) {
+//                            alert('leaf clicked');
+                        })
+                        .showTitle(false)
+                        .tooltips(true)
+                        .getSize(function(d) { return d.size; })
+//                    .colorData( 'graduated', {c1: '#9ed1ea', c2: '#828282', l: data.length} )
+                    //.colorData( 'graduated', {c1: '#f3c39b', c2: '#8b7398', l: data.length} )
+                    //.colorData( 'class', {step:2} )
+                        .colorData( 'default' )
+                ;
+
+        nv.utils.windowResize(chart.update);
+
+
+
+            d3.select('#treemap svg')
+                    .datum(data)
+                    .transition().duration(500)
+                    .call(chart);
+
+        return chart;
+    });
+
+</script>
