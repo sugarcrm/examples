@@ -1,0 +1,22 @@
+{{!
+/*
+ * By installing or using this file, you are confirming on behalf of the entity
+ * subscribed to the SugarCRM Inc. product ("Company") that Company is bound by
+ * the SugarCRM Inc. Master Subscription Agreement ("MSA"), which is viewable at:
+ * http://www.sugarcrm.com/master-subscription-agreement
+ *
+ * If Company is not bound by the MSA, then by installing or using this file
+ * you are agreeing unconditionally that Company will be bound by the MSA and
+ * certifying that you have authority to bind Company accordingly.
+ *
+ * Copyright (C) 2004-2014 SugarCRM Inc. All rights reserved.
+ */
+}}
+<div class="image_field image_edit hide">
+    <label>
+        <span class="image_input"><input type="file" name="{{name}}"></span>
+        <span class="image_btn image_btn_label">{{str "LBL_EDIT_BUTTON"}}</span>
+        <span class="image_preview">{{#if value}}<img src="{{value}}">{{else}}<i class="icon-plus"></i>{{/if}}</span>
+    </label>
+</div>
+{{#unless hideHelp}}{{#if def.help}}<p class="help-block">{{str def.help module}}</p>{{/if}}{{/unless}}
